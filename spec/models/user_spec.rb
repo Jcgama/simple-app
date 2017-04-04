@@ -10,22 +10,22 @@ RSpec.describe User, type: :model do
          expect(subject).to be_valid 
       end
       
-      it "should not be valid absent certain fields" do
+      it "should not be valid absent email" do
          subject.email = nil
          expect(subject).to_not be_valid
       end
       
-      it "should not be valid absent certain fields" do
+      it "should not be valid absent password" do
          subject.password = nil
          expect(subject).to_not be_valid
       end
       
-      it "should not be valid absent certain fields" do
+      it "should not be valid absent first name" do
          subject.first_name = nil
          expect(subject).to_not be_valid
       end
       
-      it "should not be valid absent certain fields" do
+      it "should not be valid absent last name" do
          subject.last_name = nil
          expect(subject).to_not be_valid
       end
