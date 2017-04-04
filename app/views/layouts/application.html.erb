@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+  
+  <%= nav_bar brand: "Bobinho's", brand_link: authenticated_root_path do %>
+      <%= menu_group do %>
+      <% if user_signed_in? %>
+        <%= menu_item 'Edit profile', edit_user_registration_path %> 
+        <%= menu_item "Logout", destroy_user_session_path, method: :delete  %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <% if notice %>
+    <p class="alert"><%= notice %></p>
+  <%end%>
+  <% if alert %>
+    <p class = "alert"><%= alert %></p>
+  <%end%>
+  
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>
