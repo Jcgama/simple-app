@@ -10,19 +10,19 @@
   
   
   <%= nav_bar brand: "Bobinho's", brand_link: authenticated_root_path do %>
-      <%= menu_group do %>
+      <%= menu_group pull: :right do %>
       <% if user_signed_in? %>
-        <%= menu_item 'Edit profile', edit_user_registration_path %> 
+        <%= menu_item "Logado como #{current_user.first_name} #{current_user.last_name}"  %>
         <%= menu_item "Logout", destroy_user_session_path, method: :delete  %>
       <% end %>
     <% end %>
   <% end %>
   
   <% if notice %>
-    <p class="alert"><%= notice %></p>
+    <p class="text-success"><%= notice %></p>
   <%end%>
   <% if alert %>
-    <p class = "alert"><%= alert %></p>
+    <p class ="text-warning"><%= alert %></p>
   <%end%>
   
   <div class="container">
