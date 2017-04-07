@@ -12,20 +12,25 @@
   <%= nav_bar brand: "Bobinho's", brand_link: authenticated_root_path do %>
       <%= menu_group pull: :right do %>
       <% if user_signed_in? %>
-        <%= menu_item "Logado como #{current_user.first_name} #{current_user.last_name}"  %>
+        <%= menu_item "Logado como #{current_user.first_name} #{current_user.last_name}", '#'  %>
         <%= menu_item "Logout", destroy_user_session_path, method: :delete  %>
       <% end %>
     <% end %>
   <% end %>
   
   <% if notice %>
-    <p class="text-success"><%= notice %></p>
-  <%end%>
-  <% if alert %>
-    <p class ="text-warning"><%= alert %></p>
+    <div class = "container">
+      <p class="text-success"><%= notice %></p>
+    </div>
   <%end%>
   
-  <div class="container">
+  <% if alert %>
+    <div class = "container">
+      <p class ="text-warning"><%= alert %></p>
+    </div>
+  <%end%>
+  
+  <div class="container text-center">
     <%= yield %>
   </div>
 </body>
