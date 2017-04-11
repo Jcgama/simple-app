@@ -1,0 +1,26 @@
+<div class='container'>
+    <h1>Minhas listas:</h1>
+        
+        <% @lists.each do |list| %>
+        <div class="panel panel-primary">
+            
+                
+                <div class="panel-heading">
+                    <%= list.name %>
+                </div>
+                
+                <div class="panel-body">
+                    lorem ipsum
+                </div>
+                
+                <% list.tasks.each do |task| %>
+                    <ul class="list-group">
+                        <li class="list-group-item"><%= task.name %>: <%= task.description %></li>
+                    </ul>
+                    
+                <%end%>
+        
+        </div>
+        <%end%>
+    
+</div>
